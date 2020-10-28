@@ -47,10 +47,10 @@ public class CodeGeneratorMain {
 
         // 数据库
         codeGenerator
-        		.setDriverName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-        		.setDriverUrl("jdbc:sqlserver://192.168.1.250:1433;DatabaseName=wenku;")
-                .setUserName("sa")
-                .setPassword("123456");
+        		.setDriverName("")
+        		.setDriverUrl("")
+                .setUserName("")
+                .setPassword("");
 
         // 包信息
         codeGenerator.
