@@ -1,0 +1,45 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import java.util.List;
+
+
+/**
+ * <p>
+ * $!{table.comment} 服务类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+
+#if(${kotlin})
+interface ${table.serviceName}
+#else
+public interface ${table.serviceName}{
+    /**
+    *  根据主键删除数据库的记录, ${table.name}
+    */
+    int deleteById(Long id);
+
+    /**
+     * 新写入数据库记录, ${table.name}
+     */
+    int insert(${table.entityName} record);
+
+    /**
+     *  根据获取全部记录, ${table.name}
+     */
+    List<${table.entityName}> selectByAll();
+
+    /**
+     *  根据指定主键获取一条数据库记录, ${table.name}
+     */
+    ${table.entityName} selectById(Long id);
+
+    /**
+     *  根据主键来更新符合条件的数据库记录, ${table.name}
+     */
+    int updateById(${table.entityName} record);
+}
+#end
