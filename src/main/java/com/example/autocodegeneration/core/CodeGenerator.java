@@ -270,7 +270,7 @@ public class CodeGenerator {
         pc.setParent(parentPackage);
         pc.setController(packageController);
         // Entity包名
-        pc.setEntity("model");
+        pc.setEntity("entity");
         // Service包名
         //pc.setService("");
         // Service Impl包名
@@ -457,7 +457,7 @@ public class CodeGenerator {
         // 【实体】是否为构建者模型（默认 false）
         strategy.setEntityBuilderModel(false);
         // 【实体】是否为lombok模型（默认 false）
-        strategy.setEntityLombokModel(true);
+        strategy.setEntityLombokModel(false);
         // Boolean类型字段是否移除is前缀（默认 false）
         strategy.setEntityBooleanColumnRemoveIsPrefix(true);
         // 生成 @RestController 控制器

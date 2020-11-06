@@ -11,14 +11,16 @@ import org.springframework.stereotype.Controller;
 import ${superControllerClassPackage};
 #end
 
+
+
 /**
- * <p>
- * $!{table.comment} 前端控制器
- * </p>
- *
+ * @Title: $!{table.controllerName}
  * @author ${author}
- * @since ${date}
+ * @Date ${date}${time}
+ * @version V1.0
+ * ${tags}
  */
+
 #if(${restControllerStyle})
 @RestController
 #else

@@ -8,56 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * $!{table.comment} 服务实现类
- * </p>
- *
+ * @Title: $!{table.serviceImplName}
  * @author ${author}
- * @since ${date}
+ * @Date ${date}${time}
+ * @version V1.0
+ * ${tags}
  */
-@Service
 
+@Service
 #if(${kotlin})
 open class ${table.serviceImplName} ${table.serviceName} {
 }
 #else
 public class ${table.serviceImplName}  implements ${table.serviceName} {
-    @Autowired
-    ${table.mapperName} mapper;
 
-    /**
-    *  根据主键删除数据库的记录, ${table.name}
-    */
-    public int deleteById(Long id){
-        return mapper.deleteById(id);
-    }
-
-    /**
-     * 新写入数据库记录, ${table.name}
-     */
-    public int insert(${table.entityName} record){
-        return mapper.insert(record);
-    }
-
-    /**
-     *  根据获取全部记录, ${table.name}
-     */
-    public List<${table.entityName}> selectByAll(){
-        return mapper.selectByAll();
-    }
-
-    /**
-     *  根据指定主键获取一条数据库记录, ${table.name}
-     */
-     public ${table.entityName} selectById(Long id){
-        return mapper.selectById(id);
-    }
-
-    /**
-     *  根据主键来更新符合条件的数据库记录, ${table.name}
-     */
-     public int updateById(${table.entityName} record){
-        return mapper.updateById(record);
-    }
 }
 #end

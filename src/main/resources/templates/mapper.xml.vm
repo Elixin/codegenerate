@@ -20,7 +20,6 @@
         </resultMap>
     #end
 
-
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         #foreach($field in ${table.commonFields})
@@ -30,68 +29,7 @@
     </sql>
 
 
-    <delete id="deleteById" parameterType="java.lang.Long">
-        <!-- -->
-        delete from ${table.name}
-        where
-        #foreach($field in ${table.fields})
-            #if(${field.keyFlag})## 主键
-                ${field.name} = #{ ${field.propertyName} }
-            #end
-        #end
-    </delete>
 
-    <insert id="insert" parameterType="${package.Entity}.${entity}">
-        <!-- -->
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
-        insert into ${table.name} (
-        #foreach($field in ${table.fields})
-            #if(!${field.keyFlag})##生成普通字段
-                ${field.name} #if($foreach.hasNext),#end
-            #end
-        #end
-        )
-        values (
-        #foreach($field in ${table.fields})
-            #if(!${field.keyFlag})##生成普通字段
-                #{ ${field.propertyName}}#if($foreach.hasNext),#end
-            #end
-        #end
-        )
-    </insert>
-
-    <update id="updateById" parameterType="${package.Entity}.${entity}">
-        <!-- -->
-        update ${table.name}
-        set
-        #foreach($field in ${table.fields})
-            #if(!${field.keyFlag})##生成普通字段
-                ${field.name} = #{ ${field.propertyName}} #if($foreach.hasNext),#end
-            #end
-        #end
-        where
-        #foreach($field in ${table.fields})
-            #if(${field.keyFlag})
-                id = #{ ${field.name} }
-            #end
-        #end
-    </update>
-    <select id="selectByAll" resultMap="BaseResultMap">
-        <!-- -->
-        select
-        <include refid="Base_Column_List" />
-        from ${table.name}
-    </select>
-
-    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        <!-- -->
-        select
-        <include refid="Base_Column_List" />
-        from ${table.name}
-        where id = #{ id }
-    </select>
 
 
 </mapper>

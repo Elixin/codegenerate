@@ -43,19 +43,19 @@ public class CodeGeneratorMain {
         String[] tables = scanner("表名，多个英文逗号分割").split(",");
 
         CodeGenerator codeGenerator = new CodeGenerator();
-        codeGenerator.setProjectPath("C:\\Users\\huyix\\Documents\\workspace-spring-tool-suite-4-4.7.1.RELEASE\\test1");
-
+        codeGenerator.setProjectPath("C:\\jd\\code\\wxdks");
+//        codeGenerator.setProjectPath("C:\\codegenerate");
         // 数据库
         codeGenerator
-        		.setDriverName("")
-        		.setDriverUrl("")
-                .setUserName("")
-                .setPassword("");
+        		.setDriverName("com.mysql.cj.jdbc.Driver")
+        		.setDriverUrl("jdbc:mysql://192.168.1.250:3306/wxdks?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8")
+                .setUserName("root")
+                .setPassword("123456");
 
         // 包信息
         codeGenerator.
-                setProjectPackagePath("com/jd/" + dirName)
-                .setParentPackage("com.jd." + dirName);
+                setProjectPackagePath("com/c3/" + dirName)
+                .setParentPackage("com.c3." + dirName);
 
         // 组件作者等配置
         codeGenerator
